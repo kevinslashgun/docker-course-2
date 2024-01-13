@@ -1,17 +1,20 @@
-# Usa un'immagine di Node.js LTS come base
-FROM node:lts-alpine
+# Use an official base image
+FROM node:14
 
-# Imposta la directory di lavoro all'interno dell'immagine
+# Set the working directory
 WORKDIR /app
 
-# Copia i file del tuo progetto nell'immagine
-COPY package.json server.js public/ /app/
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
-# Installa le dipendenze
+# Install dependencies
 RUN npm install
 
-# Esponi la porta su cui l'applicazione sarà in ascolto
+# Copy the application files
+COPY . .
+
+# Expose the port your app runs on
 EXPOSE 3000
 
-# Comando per avviare l'applicazione
-CMD ["node", "server.js"]
+# Command to run your application
+CMD ["npm", "start"]
