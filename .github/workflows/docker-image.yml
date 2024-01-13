@@ -34,5 +34,6 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            docker.pkg.github.com/${{ github.repository }}/coemgenus/docker-course-2:latest
-            docker.pkg.github.com/${{ github.repository }}/coemgenus/docker-course-2:${{ github.sha }}
+            docker.pkg.github.com/${{ github.repository_owner }}/${{ github.repository }}/docker-course-2:latest
+            docker.pkg.github.com/${{ github.repository_owner }}/${{ github.repository }}/docker-course-2:${{ github.sha }}
+
